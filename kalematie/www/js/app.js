@@ -58,7 +58,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 // Quote index controller
-app.controller("quotesCtrl", function($scope, $ionicModal) {
+app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
     $scope.quotes = [
         {
             text : "You can do it",
@@ -82,6 +82,7 @@ app.controller("quotesCtrl", function($scope, $ionicModal) {
 
     ];
     $scope.modalQuoteIndex = 0;
+
     $scope.showQuoteModal = function (index) {
         $scope.modalQuoteIndex = index;
         $scope.showModal("quoteModal.html");
@@ -102,6 +103,25 @@ app.controller("quotesCtrl", function($scope, $ionicModal) {
         $scope.modal.hide();
         $scope.modal.remove();
     };
+
+    // categories popup
+    
+    $scope.showCatPopup = function() {
+        var myPopup = $ionicPopup.show({
+            templateUrl : 'catPopupTemp.html',
+            title : 'Choose a quote category',
+            scope : $scope,
+            buttons : [
+                {
+                    text : 'Cancel',
+                    type : 'button button-assertive button-full',
+                }
+            ]
+        }).then(function(res) {
+            console.log("tapped!", res);
+        });
+    };
+    
 });
 
 // Authors index controller TODO : tidy up 

@@ -73,15 +73,16 @@
             <ion-view title="Quotes">
                 <ion-nav-buttons side="right">
                     <a class="button button-icon-right icon ion-compose"
-                        on-tap="showComposePopup()">
+                        >
                         Write
                     </a>
                 </ion-nav-buttons>
-                <div class="bar bar-subheader">
-                    <h2 class="title">kldasjf</h2>
-                </div>
+                <ion-nav-buttons side="left">
+                    <a class="button button-icon icon ion-android-menu"
+                        on-tap="showCatPopup()">
+                    </a>
+                </ion-nav-buttons>
                 <ion-content padding="true">
-                    <br>
                     <div
                         class="card"
                         ng-repeat="quote in quotes"
@@ -159,6 +160,15 @@
                     on-tap="closeModal()">
                 </button>
             </div>
+        </script>
+
+        <!---- CATEGORIES POPUP TEMPLATE ---->
+        <script type="text/ng-template" id="catPopupTemp.html">
+
+            <button class="button button-light button-full"> all </button>
+            <button class="button button-light button-full"> mostFaved </button>
+            <button class="button button-light button-full"> topRated </button>
+            <button class="button button-light button-full"> original </button>
         </script>
 
     </body>

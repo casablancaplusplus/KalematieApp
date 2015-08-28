@@ -46,7 +46,9 @@
                         Write
                     </a>
                 </ion-nav-buttons>
+                
                 <ion-content padding="false">
+                    
                     <div class="card">
                         <a class="item item-text-wrap-right text-right">
                             <h2>Nazar Abdolkhanie</h2>
@@ -75,11 +77,14 @@
                         Write
                     </a>
                 </ion-nav-buttons>
+                <div class="bar bar-subheader">
+                    <h2 class="title">kldasjf</h2>
+                </div>
                 <ion-content padding="true">
+                    <br>
                     <div
                         class="card"
                         ng-repeat="quote in quotes"
-                        ui-sref="quotes.detail"
                         >
                         <div class="item item-positive tabs tabs-secondary">
                             <a class="tab-item">
@@ -92,16 +97,70 @@
                                 <i class="icon ion-android-star-half"></i>
                             </a>
                         </div>
-                        <div class="item item-text-wrap text-right">
+                        <a class="item item-text-wrap text-right"
+                            on-tap="showQuoteModal($index)">
                             {{ quote.text }} 
-                        </div>
-                        <div class="item item-text-wrap item-divider item-balanced text-right">
+                        </a>
+                        <div class="item item-text-wrap item-divider item-positive text-right">
                             {{ quote.author }} --
                         </div>
                     </div>
                 </ion-content>
             </ion-view>
         </script>
+
+        <!---- QUOTE MODAL TEMPLATE ---->
+        <script type="text/ng-template" id="quoteModal.html">
+            <div class="modal image-modal transparent">
+                <div class="card">
+                    <div class="item item-positive tabs tabs-secondary">
+                        <a class="tab-item">
+                            <i class="icon ion-heart"></i>
+                        </a>
+                        <a class="tab-item">
+                            <i class="icon ion-checkmark"></i>
+                        </a>
+                        <a class="tab-item">
+                            <i class="icon ion-android-star-half"></i>
+                        </a>
+                    </div>
+                    <a class="item item-text-wrap text-right">
+                        {{ quotes[modalQuoteIndex].text }} 
+                    </a>
+                    <div class="item item-text-wrap item-divider item-positive text-right">
+                        {{ quotes[modalQuoteIndex].author }} --
+                    </div>
+                    <div class="item item-divider item-text-wrap text-right item-dark">
+                        Stats
+                    </div>
+                    <div class="item item-icon-right">
+                        <i class="icon ion-heart"></i>
+                        21
+                        <span class="item-note">
+                            faves
+                        </span>
+                    </div>
+                    <div class="item item-icon-right">
+                        <i class="icon ion-android-star-half"></i>
+                        6.3
+                        <span class="item-note">
+                            rating
+                        </span>
+                    </div>
+                    <div class="item item-icon-right">
+                        <i class="icon ion-eye"></i>
+                        3345
+                        <span class="item-note">
+                            views
+                        </span>
+                    </div>
+                </div>
+                <button class="button button-full icon-bottom ion-chevron-down button-assertive"
+                    on-tap="closeModal()">
+                </button>
+            </div>
+        </script>
+
     </body>
 </html>
 

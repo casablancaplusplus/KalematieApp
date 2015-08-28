@@ -58,7 +58,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 });
 
 // Quote index controller
-app.controller("quotesCtrl", function($scope) {
+app.controller("quotesCtrl", function($scope, $ionicModal) {
     $scope.quotes = [
         {
             text : "You can do it",
@@ -81,6 +81,27 @@ app.controller("quotesCtrl", function($scope) {
         }
 
     ];
+    $scope.modalQuoteIndex = 0;
+    $scope.showQuoteModal = function (index) {
+        $scope.modalQuoteIndex = index;
+        $scope.showModal("quoteModal.html");
+    };
+
+    $scope.showModal = function(tempUrl) {
+        $ionicModal.fromTemplateUrl(tempUrl, {
+            scope : $scope,
+            animation : "slide-in-up"
+        }).then(function(modal){
+            $scope.modal = modal;
+            $scope.modal.show();
+        });
+    };
+
+    // Close the modal
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+        $scope.modal.remove();
+    };
 });
 
 // Authors index controller TODO : tidy up 

@@ -1,1 +1,8 @@
-/* Empty. Add your own CSS if you like */
+
+textarea.noresize {
+    overflow: auto;
+    resize: none;
+    display: block;
+    width:100%;
+
+}

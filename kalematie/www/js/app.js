@@ -88,6 +88,10 @@ app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
         $scope.showModal("quoteModal.html");
     };
 
+    $scope.showComposeModal = function () {
+        $scope.showModal("composeModal.html");
+    };
+
     $scope.showModal = function(tempUrl) {
         $ionicModal.fromTemplateUrl(tempUrl, {
             scope : $scope,
@@ -117,11 +121,9 @@ app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
                     type : 'button button-assertive button-full',
                 }
             ]
-        }).then(function(res) {
-            console.log("tapped!", res);
         });
     };
-    
+
 });
 
 // Authors index controller TODO : tidy up 

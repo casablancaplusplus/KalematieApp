@@ -107,8 +107,9 @@ app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
         $scope.modal.hide();
         $scope.modal.remove();
     };
-    // Generic popup shower
 
+
+    // Generic popup shower
     $scope.showPopup = function(tempUrl, tit) {
         var myPopup = $ionicPopup.show({
             templateUrl : tempUrl,
@@ -137,7 +138,7 @@ app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
 });
 
 // Authors index controller TODO : tidy up 
-app.controller("authorsCtrl", function($scope) {
+app.controller("authorsCtrl", function($scope, $ionicPopup) {
     $scope.authors = [
     {
         id : 1,
@@ -166,4 +167,22 @@ app.controller("authorsCtrl", function($scope) {
     }
 
     ];
+
+    /// Generic popup shower
+    $scope.showPopup = function(tempUrl) {
+        var myPopup = $ionicPopup.show({
+            templateUrl : tempUrl,
+            scope : $scope,
+            buttons : [
+                {
+                    text : 'Cancel',
+                    type: 'button button-assertive button-full'
+                }
+            ]
+        });
+    };
+
+    $scope.showOptionsPopup = function() {
+        $scope.showPopup('optionsPopupTemp.html');
+    };
 });

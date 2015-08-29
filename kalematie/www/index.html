@@ -53,7 +53,7 @@
                         class="card"
                         ng-repeat="author in authors"
                         >
-                        <a class="item item-text-wrap item-divider item-positive text-right">
+                        <a class="item item-text-wrap item-divider item-positive text-right" on-tap = "showOptionsPopup()">
                             {{ author.username }} --
                         </a>
                         <div class="item item-divider item-icon-right">
@@ -196,6 +196,11 @@
                 10
             </div>
             <a class="button button-full button-positive">Send</a>
+        </script>
+
+        <script type="text/ng-template" id="optionsPopupTemp.html">
+            <button class="button button-balanced button-full"> Read my Quotes </button>
+            <button class="button button-dark button-full"> Follow me</button>
         </script>
 
         <!---- COMPOSE MODAL ---->

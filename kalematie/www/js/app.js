@@ -138,7 +138,7 @@ app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
 });
 
 // Authors index controller TODO : tidy up 
-app.controller("authorsCtrl", function($scope, $ionicPopup) {
+app.controller("authorsCtrl", function($scope, $ionicPopup, $ionicModal) {
     $scope.authors = [
     {
         id : 1,
@@ -184,5 +184,24 @@ app.controller("authorsCtrl", function($scope, $ionicPopup) {
 
     $scope.showOptionsPopup = function() {
         $scope.showPopup('optionsPopupTemp.html');
+    };
+
+    $scope.showModal = function(tempUrl) {
+        $ionicModal.fromTemplateUrl(tempUrl, {
+            scope : $scope,
+            animation : "slide-in-up"
+        }).then(function(modal){
+            $scope.modal = modal;
+            $scope.modal.show();
+        });
+    };
+
+    $scope.showComposeModal = function() {
+        $scope.showModal("composeModal.html");
+    };
+
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+        $scope.modal.remove();
     };
 });

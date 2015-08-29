@@ -2,7 +2,6 @@
 <html ng-app="kalematieApp">
     <head>
         <meta charset="utf-8">
-        <meta dir="rtl">
         <link data-require="ionic@1.0.0-beta13" data-semver="1.0.0-beta13" rel="stylesheet" href="lib/ionic/css/ionic.css"/>
         <link href="css/style.css" rel="stylesheet"/>
         <script data-require="ionic@1.0.0-beta13" data-semver="1.0.0-beta13" src="lib/ionic/js/ionic.bundle.js"></script>
@@ -50,20 +49,34 @@
                 </ion-nav-buttons>
                 
                 <ion-content padding="false">
-                    
-                    <div class="card">
-                        <a class="item item-text-wrap-right text-right">
-                            <h2>Nazar Abdolkhanie</h2>
-                        </a>
-                    </div>
                     <div
                         class="card"
                         ng-repeat="author in authors"
-                        ui-sref="authors.detail"
                         >
-                        <a class="item item-text-wrap-right text-right">
-                            <h2> {{ author.username }} </h2>
+                        <a class="item item-text-wrap item-divider item-positive text-right">
+                            {{ author.username }} --
                         </a>
+                        <div class="item item-divider item-icon-right">
+                            <i class="icon ion-heart"></i>
+                            21
+                            <span class="item-note">
+                                faves
+                            </span>
+                        </div>
+                        <div class="item item-divider item-icon-right">
+                            <i class="icon ion-android-star-half"></i>
+                            3325
+                            <span class="item-note">
+                                rating
+                            </span>
+                        </div>
+                        <div class="item item-divider item-icon-right">
+                            <i class="icon ion-person-stalker"></i>
+                            33455
+                            <span class="item-note">
+                                Followers
+                            </span>
+                        </div>
                     </div>
                 </ion-content>
             </ion-view>
@@ -137,21 +150,21 @@
                     <div class="item item-divider item-text-wrap text-right item-dark">
                         Stats
                     </div>
-                    <div class="item item-icon-right">
+                    <div class="item item-divider item-icon-right">
                         <i class="icon ion-heart"></i>
                         21
                         <span class="item-note">
                             faves
                         </span>
                     </div>
-                    <div class="item item-icon-right">
+                    <div class="item item-divider item-icon-right">
                         <i class="icon ion-android-star-half"></i>
                         6.3
                         <span class="item-note">
                             rating
                         </span>
                     </div>
-                    <div class="item item-icon-right">
+                    <div class="item item-divider item-icon-right">
                         <i class="icon ion-eye"></i>
                         3345
                         <span class="item-note">

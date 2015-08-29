@@ -107,22 +107,32 @@ app.controller("quotesCtrl", function($scope, $ionicModal, $ionicPopup) {
         $scope.modal.hide();
         $scope.modal.remove();
     };
+    // Generic popup shower
 
-    // categories popup
-    
-    $scope.showCatPopup = function() {
+    $scope.showPopup = function(tempUrl, tit) {
         var myPopup = $ionicPopup.show({
-            templateUrl : 'catPopupTemp.html',
-            title : 'Choose a quote category',
+            templateUrl : tempUrl,
+            title : tit,
             scope : $scope,
             buttons : [
                 {
                     text : 'Cancel',
-                    type : 'button button-assertive button-full',
+                    type: 'button button-assertive button-full'
                 }
-            ]
+            ] 
         });
     };
+
+    // categories popup
+    
+    $scope.showCatPopup = function() {
+        $scope.showPopup('catPopupTemp.html', 'Choose the category');
+    };
+    
+    $scope.showRatingPopup = function() {
+        $scope.showPopup('ratingPopupTemp.html', 'Rate this quote');
+    };
+
 
 });
 

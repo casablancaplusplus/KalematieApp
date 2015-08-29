@@ -4,5 +4,6 @@ textarea.noresize {
     resize: none;
     display: block;
     width:100%;
-
+    height: 150px;
+    text-align: right;
 }

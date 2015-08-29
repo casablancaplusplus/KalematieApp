@@ -2,6 +2,7 @@
 <html ng-app="kalematieApp">
     <head>
         <meta charset="utf-8">
+        <meta dir="rtl">
         <link data-require="ionic@1.0.0-beta13" data-semver="1.0.0-beta13" rel="stylesheet" href="lib/ionic/css/ionic.css"/>
         <link href="css/style.css" rel="stylesheet"/>
         <script data-require="ionic@1.0.0-beta13" data-semver="1.0.0-beta13" src="lib/ionic/js/ionic.bundle.js"></script>
@@ -95,7 +96,7 @@
                             <a class="tab-item">
                                 <i class="icon ion-checkmark"></i>
                             </a>
-                            <a class="tab-item">
+                            <a class="tab-item" on-tap="showRatingPopup()">
                                 <i class="icon ion-android-star-half"></i>
                             </a>
                         </div>
@@ -123,7 +124,7 @@
                         <a class="tab-item">
                             <i class="icon ion-checkmark"></i>
                         </a>
-                        <a class="tab-item">
+                        <a class="tab-item" on-tap="showRatingPopup()">
                             <i class="icon ion-android-star-half"></i>
                         </a>
                     </div>
@@ -172,6 +173,16 @@
             <button class="button button-light button-full"> mostFaved </button>
             <button class="button button-light button-full"> topRated </button>
             <button class="button button-light button-full"> original </button>
+        </script>
+
+        <!---- RATING POPUP TEMPLATE ---->
+        <script type="text/ng-template" id="ratingPopupTemp.html">
+            <div class="item range range-positive">
+                0
+                <input type="range" min="0" max="10" value="5">
+                10
+            </div>
+            <a class="button button-full button-positive">Send</a>
         </script>
 
         <!---- COMPOSE MODAL ---->

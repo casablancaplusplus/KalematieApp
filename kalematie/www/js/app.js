@@ -186,6 +186,10 @@ app.controller("authorsCtrl", function($scope, $ionicPopup, $ionicModal) {
         $scope.showPopup('optionsPopupTemp.html');
     };
 
+    $scope.showCatPopup = function() {
+        $scope.showPopup('authorCatPopup.html');
+    };
+
     $scope.showModal = function(tempUrl) {
         $ionicModal.fromTemplateUrl(tempUrl, {
             scope : $scope,
@@ -199,9 +203,12 @@ app.controller("authorsCtrl", function($scope, $ionicPopup, $ionicModal) {
     $scope.showComposeModal = function() {
         $scope.showModal("composeModal.html");
     };
-
+    
+    
     $scope.closeModal = function() {
         $scope.modal.hide();
         $scope.modal.remove();
     };
+
+    
 });
